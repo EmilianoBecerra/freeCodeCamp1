@@ -1,3 +1,4 @@
+let lvl = 1;
 let xp = 0;
 let health = 100;
 let gold = 50;
@@ -6,6 +7,7 @@ let fighting;
 let monsterHealth;
 let inventory = ["stick"];
 
+const lvlText = document.querySelector("#lvlText");
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
@@ -16,6 +18,7 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
+const stats = document.querySelector("#stats");
 const weapons = [
         {
             name: "stick",
@@ -51,6 +54,7 @@ const monsters = [
         health: 300
     }
 ];
+
 const locations = [
     {
         name: "town square",
@@ -106,7 +110,7 @@ const locations = [
         "button functions": [pickTwo, pickEight, goTown],
         text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!"
 
-    }
+    },
 
 ];
 
@@ -168,8 +172,9 @@ function attack() {
     text.innerText = "The " + monsters[fighting].name + " attacks.";
     text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
     health -= getMonsterAttackValue(monsters[fighting].level);
+    health<=0 ? health = 0 : health;
     if(isMonsterHit()) {
-        monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;
+        monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + lvl;
     } else {
         text.innerText += " You miss.";
     }
@@ -191,8 +196,7 @@ function attack() {
 }
 
 function getMonsterAttackValue(level) {
-    const hit = (level * 5) - (Math.floor(Math.random() * xp));
-    console.log(hit);
+    const hit = (level * 5) - (Math.floor(Math.random() * lvl));
     return hit > 0 ? hit : 0;
 }
 
@@ -233,9 +237,14 @@ function winGame() {
 
 function defeatMonster() {
     gold += Math.floor(monsters[fighting].level * 6.7);
-    xp += monsters[fighting].level;
-    goldText.innerText = gold;
+    xp += Math.floor(monsters[fighting].level * 15 / lvl);
+    if(xp > 99){
+        lvl++;
+        lvlText.innerText = lvl;
+        xp = Math.floor(xp - 100);        
+    }
     xpText.innerText = xp;
+    goldText.innerText = gold;
     update(locations[4])
 }
 
@@ -293,6 +302,7 @@ function pickEight() {
 }
 
 function restart() {
+    lvl = 1;
     xp = 0;
     health = 100;
     gold = 50;
@@ -301,6 +311,7 @@ function restart() {
     goldText.innerText = gold;
     healthText.innerText = health;
     xpText.innerText = xp;
+    lvl === 1 ? lvlText.innerText = lvl : lvlText.innerText = lvl - 1;
     goTown()
 }
 
