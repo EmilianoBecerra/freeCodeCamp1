@@ -17,7 +17,8 @@ function isInvalidInput(str) {
     
 }
 
-function addEntry(){
+function addEntry(e){
+    e.preventDefault();
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `<label for="${entryDropdown.value}-${entryNumber}-name">Entry ${entryNumber} Name</label>
@@ -87,5 +88,5 @@ function clearForm() {
     output.classList.add("hide");
 };
 addEntryButton.addEventListener("click", addEntry);
-calorieCounter.addEventListener("submit",calculateCalories())
+calorieCounter.addEventListener("submit",calculateCalories)
 clearButton.addEventListener("click", clearForm);
