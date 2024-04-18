@@ -1,0 +1,3 @@
+STATISTICAL CALCULATIONS::
+    Handling user input, DOM manipulation and method chaining.
+    array manipulation methods: map, reduce and filter.
