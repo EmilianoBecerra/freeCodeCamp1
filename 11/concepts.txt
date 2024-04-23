@@ -1,0 +1,14 @@
+SPREADSHEET::
+    Functional Programming
+    map(),
+    find(),
+    parseInt(),
+    includes(),
+    etc
+
+In this spreadsheet application project, i'll learn about parsing and evaluating mathematical
+expressions, implementing spreadsheet functions, handling cell references, and creating 
+interactive web interfaces. i'll learn how to dynamically update the page based on user input.
+
+
+Page: freeCodeCamp
