@@ -1,0 +1,10 @@
+SHOPPING CART::
+    OOP,
+    ternary operator,
+    spread operator,
+    this keyword,
+    etc
+Page: freeCodeCamp
+
+
+* The HTML and CSS are already provided for freeCodeCamp.
