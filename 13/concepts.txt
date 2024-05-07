@@ -1,0 +1,13 @@
+PLATAFORMER GAME::
+    OOP,
+    classes,
+    objects,
+    inheritance,
+    encapsulation,
+    code reusability,
+    problem-solving,
+    etc
+Page: freeCodeCamp
+
+
+* The HTML and CSS are already provided for freeCodeCamp.
