@@ -1,0 +1,9 @@
+DICE GAME::
+   event handlig,
+   array manipulation, 
+   conditional logic,
+   updating the user interface dynamically based on game stated.
+Page: freeCodeCamp
+
+
+* The HTML and CSS are already provided for freeCodeCamp.
